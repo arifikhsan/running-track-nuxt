@@ -1,77 +1,60 @@
 <template>
-  <div class="container">
+  <div class="m-8">
     <div>
-      <logo />
-      <h1 class="title">
-        running-track-nuxt
-      </h1>
-      <h2 class="subtitle">
-        My divine Nuxt.js project
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
+      <div class="w-4 -m-2 absolute rounded h-4 bg-green-500 follower"></div>
+      <svg
+        width="200"
+        height="200"
+        viewBox="0 0 200 200"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          class="aa absolute"
+          stroke="#000"
+          stroke-width="1"
+          d="M0 25C0 11.1929 11.1929 0 25 0H175C188.807 0 200 11.1929 200 25V175C200 188.807 188.807 200 175 200H25C11.1929 200 0 188.807 0 175V25Z"
+          fill="#FFFFFF"
+        />
+      </svg>
+    </div>
+    <div class="mt-4">
+      <button @click="play">Play</button>
+      <button @click="pause">Pause</button>
     </div>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import anime from "animejs";
 
 export default {
-  components: {
-    Logo
-  }
-}
+  data() {
+    return {
+      anime: undefined
+    };
+  },
+  mounted() {
+    const path = anime.path(".aa");
+
+    this.anime = anime({
+      targets: ".follower",
+      translateX: path("x"),
+      translateY: path("y"),
+      rotate: path("angle"),
+      easing: "linear",
+      duration: 10000,
+      loop: true,
+      autoplay: false
+    });
+  },
+  methods: {
+    play() {
+      this.anime.play()
+    },
+    pause() {
+      this.anime.pause()
+    }
+  },
+};
 </script>
-
-<style>
-/* Sample `apply` at-rules with Tailwind CSS
-.container {
-  @apply min-h-screen flex justify-center items-center text-center mx-auto;
-}
-*/
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
-</style>
