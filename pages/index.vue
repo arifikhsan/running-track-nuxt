@@ -53,13 +53,21 @@
             >
               Restart
             </button>
+            <button
+              class="px-4 py-2 mb-2 mr-2 text-white bg-yellow-500 rounded"
+              @click="check"
+            >
+              Check
+            </button>
           </div>
           <div>
             <p>duration: {{ duration }}</p>
             <template v-if="started">
-              <p v-for="node in nodes" :key="node.id">
-                node: {{ Math.round(node.node.currentTime) }}
-              </p>
+              <div v-for="node in nodes" :key="node.id">
+                <p>currentTime: {{ Math.round(node.anim.currentTime) }}</p>
+                <p>progress: {{ Math.round(node.progress) }}</p>
+                <p>complete: {{ Math.round(node.complete) }}</p>
+              </div>
             </template>
           </div>
         </div>
@@ -75,14 +83,13 @@ export default {
   data() {
     return {
       nodes: [
-        { id: 1, node: null },
-        { id: 2, node: null },
-        { id: 3, node: null }
+        { id: 1, anim: null, complete: false, progress: 0 },
+        { id: 2, anim: null, complete: false, progress: 0 },
+        { id: 3, anim: null, complete: false, progress: 0 }
       ],
-      node1: undefined,
-      node2: undefined,
-      node3: undefined,
-      duration: 100000,
+      randomNodes: [],
+      // duration: 100000,
+      duration: 3000,
       started: false
     };
   },
@@ -90,7 +97,7 @@ export default {
     const path = anime.path(".aa");
 
     this.nodes.map(node => {
-      node.node = anime({
+      node.anim = anime({
         targets: `.follower${node.id}`,
         translateX: path("x"),
         translateY: path("y"),
@@ -98,17 +105,27 @@ export default {
         easing: "linear",
         duration: this.duration,
         loop: false,
-        autoplay: false
+        autoplay: false,
+        update: function(anim) {
+          node.progress = Math.round(anim.progress);
+        },
+        complete: function(anim) {
+          node.complete = anim.completed;
+        }
       });
     });
   },
   methods: {
-    play() {
+    async play() {
       this.started = true;
-      this.playAll();
-      setTimeout(() => {
-        this.pauseAll();
-      }, 1200);
+      // this.playAll();
+      await this.playAllRandom();
+      // setTimeout(() => {
+      //   this.pauseAll();
+      // }, 1200);
+    },
+    check() {
+      console.log(this.randomUnfinishedNode());
     },
     pause() {
       this.pauseAll();
@@ -118,15 +135,34 @@ export default {
       this.pauseAll();
     },
     playAll() {
-      this.nodes.map(node => node.node.play());
+      this.nodes.map(node => node.anim.play());
     },
     pauseAll() {
-      this.nodes.map(node => node.node.pause());
+      this.nodes.map(node => node.anim.pause());
     },
     restartAll() {
-      this.nodes.map(node => node.node.restart());
+      this.nodes.map(node => node.anim.restart());
     },
-    playAllRandom() {}
+    async playAllRandom() {
+      const randomNode = this.randomUnfinishedNode();
+      randomNode.anim.play();
+      await setTimeout(() => {
+        randomNode.anim.pause();
+      }, 100);
+    },
+    randomUnfinishedNode() {
+      const unfinishedNodes = this.nodes.filter(
+        node => node.complete === false
+      );
+      const random = Math.floor(Math.random() * unfinishedNodes.length);
+      return unfinishedNodes[random];
+    },
+    anyUnfinishedNode() {
+      const unfinishedNodes = this.nodes.filter(
+        node => node.complete === false
+      );
+      return unfinishedNodes.length > 0;
+    }
   }
 };
 </script>
