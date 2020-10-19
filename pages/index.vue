@@ -7,13 +7,28 @@
       <div class="flex flex-row items-start justify-between mt-8">
         <div style="width: 64rem;">
           <div
-            class="absolute w-4 h-4 ml-4 bg-blue-500 rounded follower3"
+            class="absolute w-4 h-4 ml-16 bg-gray-500 rounded follower3"
           ></div>
           <div
-            class="absolute w-4 h-4 -ml-2 bg-green-500 rounded follower1"
+            class="absolute w-4 h-4 ml-10 bg-yellow-500 rounded follower3"
           ></div>
           <div
-            class="absolute w-4 h-4 -ml-8 bg-red-500 rounded follower2"
+            class="absolute w-4 h-4 ml-6 bg-blue-500 rounded follower3"
+          ></div>
+          <div
+            class="absolute w-4 h-4 ml-1 bg-green-500 rounded follower1"
+          ></div>
+          <div
+            class="absolute w-4 h-4 -ml-4 bg-red-500 rounded follower2"
+          ></div>
+          <div
+            class="absolute w-4 h-4 -ml-10 bg-purple-500 rounded follower2"
+          ></div>
+          <div
+            class="absolute w-4 h-4 -ml-16 bg-teal-500 rounded follower2"
+          ></div>
+          <div
+            class="absolute w-4 h-4 -ml-20 bg-pink-500 rounded follower2"
           ></div>
           <svg
             width="933"
