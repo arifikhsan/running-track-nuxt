@@ -1,32 +1,68 @@
 <template>
   <div class="max-w-6xl mx-auto">
-    <div class="flex flex-col space-y-8">
-      <div class="text-center pt-8">
-        <h3 class="text-green-500 text-5xl font-bold">Ekoji Running Track</h3>
+    <div class="flex flex-col">
+      <div class="py-8 text-center">
+        <h3 class="text-5xl font-bold text-green-500">Ekoji Running Track</h3>
       </div>
-      <div>
-        <div class="w-4 -m-2 absolute rounded h-4 bg-green-500 follower"></div>
+      <div class="flex flex-row items-start justify-between mt-8">
+        <div style="width: 64rem;">
+          <div
+            class="absolute w-4 h-4 ml-4 bg-blue-500 rounded follower3"
+          ></div>
+          <div
+            class="absolute w-4 h-4 -ml-2 bg-green-500 rounded follower1"
+          ></div>
+          <div
+            class="absolute w-4 h-4 -ml-8 bg-red-500 rounded follower2"
+          ></div>
+          <svg
+            width="933"
+            height="20475"
+            viewBox="0 0 933 20475"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              class="absolute aa"
+              stroke="black"
+              d="M448 0C448 0 448 148 448 236C448 291.048 431.328 319.5 392.328 365.5C340.025 427.192 302.077 455.93 260.828 525.5C228.188 580.549 211.019 613.583 194.828 675.5C178.844 736.629 167.186 774.398 178.828 836.5C193.371 914.078 229.743 961.726 271.828 1028.5C313.178 1094.11 343.057 1115.61 392.328 1175.5C447.079 1242.05 484.925 1273.68 551.828 1328C625.657 1387.94 687.255 1396.09 753.828 1464C817.179 1528.62 851.363 1572.11 881.328 1657.5C913.739 1749.86 908.931 1810.09 899.328 1907.5C887.743 2025.01 863.149 2091.16 808.828 2196C749.416 2310.67 699.403 2368.64 603.828 2455.5C511.325 2539.57 413.353 2532.45 335.828 2630.5C264.921 2720.18 224.098 2788.77 228.828 2903C233.91 3025.71 346.136 3061.58 376.828 3180.5C396.254 3255.77 433.23 3294.16 446.328 3373C468.281 3505.15 456.176 3580.89 446.328 3713.5C436.651 3843.81 456.787 3917.18 446.328 4047C436.455 4169.55 485.447 4245.96 446.328 4363C383.125 4552.1 111.615 4503.6 59.3287 4696C-21.6332 4993.92 618.328 4946.27 618.328 5255C618.328 5563.73 59.3287 5505.27 59.3287 5814C59.3287 6122.73 485.089 6094.5 618.328 6373C791.166 6734.27 751.921 7020.96 618.328 7398.5C545.05 7605.59 511.927 7752.85 336.828 7885.5C224.442 7970.64 37.6739 7878.54 3.82764 8025C-23.4278 8142.94 155.327 8543 155.327 8543L347.827 9083.5C347.827 9083.5 501.785 9558.56 461.827 9864C417.407 10203.5 64.4557 10311 90.827 10658.5C128.652 11157 702.293 11103.7 752.827 11601C808.211 12146.1 98.272 12007.6 70.3278 12467C37.0624 13013.9 752.827 12964.1 752.827 13512C752.827 14059.9 105.177 13962.3 155.827 14456.5C196.827 14856.5 353.107 14747.5 461.827 15013C544.327 15214.5 446.959 15380.5 448 15616C448.873 15813.5 448 16121 448 16121"
+              fill="#FFFFFF"
+            />
+          </svg>
+        </div>
         <div
-          class="w-4 -mx-4 -my-2 absolute rounded h-4 bg-red-500 follower"
-        ></div>
-        <svg
-          width="933"
-          height="20475"
-          viewBox="0 0 933 20475"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
+          style="width: 12rem; position: -webkit-sticky"
+          class="sticky top-0 p-4 border border-gray-300 rounded-xl"
         >
-          <path
-            class="aa absolute"
-            stroke="black"
-            d="M472 0C472 0 472 124.5 472 236C472 290.794 457 319.5 418 365.5C365.697 427.192 327.75 455.93 286.5 525.5C253.861 580.549 236.691 613.583 220.5 675.5C204.516 736.629 192.858 774.398 204.5 836.5C219.044 914.078 255.415 961.726 297.5 1028.5C338.851 1094.11 368.729 1115.61 418 1175.5C472.751 1242.05 510.597 1273.68 577.5 1328C651.329 1387.94 712.927 1396.09 779.5 1464C842.851 1528.62 877.036 1572.11 907 1657.5C939.411 1749.86 934.603 1810.09 925 1907.5C913.416 2025.01 888.821 2091.16 834.5 2196C775.088 2310.67 725.075 2368.64 629.5 2455.5C536.997 2539.57 439.025 2532.45 361.5 2630.5C290.593 2720.18 249.77 2788.77 254.5 2903C259.582 3025.71 371.809 3061.58 402.5 3180.5C421.926 3255.77 458.902 3294.16 472 3373C493.953 3505.15 481.848 3580.89 472 3713.5C462.323 3843.81 482.459 3917.18 472 4047C462.127 4169.55 511.12 4245.96 472 4363C408.797 4552.1 137.287 4503.6 85 4696C4.03812 4993.92 644 4946.27 644 5255C644 5563.73 85 5505.27 85 5814C85 6122.73 510.762 6094.5 644 6373C816.839 6734.27 777.593 7020.96 644 7398.5C570.723 7605.59 497.795 7712.44 362.5 7885.5C244.129 8036.92 305.072 8073.89 198 8233.5C-110.61 8693.53 -15.1106 9140.67 198 9652C349.818 10016.3 388.225 10138.7 472 10462C660.762 11190.4 701.961 11669.5 472 12384C365.221 12715.8 -9.87121 12837.5 16.5001 13185C54.3248 13683.5 825.466 13620.2 876 14117.5C931.384 14662.6 108.444 14527.6 80.5 14987C47.2347 15533.9 904.5 15454.1 904.5 16002C904.5 16549.9 115.35 16482.3 166 16976.5C207 17376.5 320.059 17289.6 472 17533C1134 18593.5 472 18580.5 472 19727V20475"
-            fill="#FFFFFF"
-          />
-        </svg>
-      </div>
-      <div class="mt-4">
-        <button @click="play">Play</button>
-        <button @click="pause">Pause</button>
+          <div>
+            <button
+              class="px-4 py-2 mb-2 mr-2 text-white bg-green-500 rounded"
+              @click="play"
+            >
+              Play
+            </button>
+            <button
+              class="px-4 py-2 mb-2 mr-2 text-white bg-green-500 rounded"
+              @click="pause"
+            >
+              Pause
+            </button>
+            <button
+              class="px-4 py-2 mb-2 mr-2 text-white bg-red-500 rounded"
+              @click="restart"
+            >
+              Restart
+            </button>
+          </div>
+          <div>
+            <p>duration: {{ duration }}</p>
+            <template v-if="started">
+              <p v-for="node in nodes" :key="node.id">
+                node: {{ Math.round(node.node.currentTime) }}
+              </p>
+            </template>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -38,30 +74,59 @@ import anime from "animejs";
 export default {
   data() {
     return {
-      anime: undefined
+      nodes: [
+        { id: 1, node: null },
+        { id: 2, node: null },
+        { id: 3, node: null }
+      ],
+      node1: undefined,
+      node2: undefined,
+      node3: undefined,
+      duration: 100000,
+      started: false
     };
   },
   mounted() {
     const path = anime.path(".aa");
 
-    this.anime = anime({
-      targets: ".follower",
-      translateX: path("x"),
-      translateY: path("y"),
-      rotate: path("angle"),
-      easing: "linear",
-      duration: 100000,
-      loop: true,
-      autoplay: true
+    this.nodes.map(node => {
+      node.node = anime({
+        targets: `.follower${node.id}`,
+        translateX: path("x"),
+        translateY: path("y"),
+        rotate: path("angle"),
+        easing: "linear",
+        duration: this.duration,
+        loop: false,
+        autoplay: false
+      });
     });
   },
   methods: {
     play() {
-      this.anime.play();
+      this.started = true;
+      this.playAll();
+      setTimeout(() => {
+        this.pauseAll();
+      }, 1200);
     },
     pause() {
-      this.anime.pause();
-    }
+      this.pauseAll();
+    },
+    restart() {
+      this.restartAll();
+      this.pauseAll();
+    },
+    playAll() {
+      this.nodes.map(node => node.node.play());
+    },
+    pauseAll() {
+      this.nodes.map(node => node.node.pause());
+    },
+    restartAll() {
+      this.nodes.map(node => node.node.restart());
+    },
+    playAllRandom() {}
   }
 };
 </script>
