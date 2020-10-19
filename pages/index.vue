@@ -1,26 +1,33 @@
 <template>
-  <div class="m-8">
-    <div>
-      <div class="w-4 -m-2 absolute rounded h-4 bg-green-500 follower"></div>
-      <svg
-        width="200"
-        height="200"
-        viewBox="0 0 200 200"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          class="aa absolute"
-          stroke="#000"
-          stroke-width="1"
-          d="M0 25C0 11.1929 11.1929 0 25 0H175C188.807 0 200 11.1929 200 25V175C200 188.807 188.807 200 175 200H25C11.1929 200 0 188.807 0 175V25Z"
-          fill="#FFFFFF"
-        />
-      </svg>
-    </div>
-    <div class="mt-4">
-      <button @click="play">Play</button>
-      <button @click="pause">Pause</button>
+  <div class="max-w-6xl mx-auto">
+    <div class="flex flex-col space-y-8">
+      <div class="text-center pt-8">
+        <h3 class="text-green-500 text-5xl font-bold">Ekoji Running Track</h3>
+      </div>
+      <div>
+        <div class="w-4 -m-2 absolute rounded h-4 bg-green-500 follower"></div>
+        <div
+          class="w-4 -mx-4 -my-2 absolute rounded h-4 bg-red-500 follower"
+        ></div>
+        <svg
+          width="933"
+          height="20475"
+          viewBox="0 0 933 20475"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            class="aa absolute"
+            stroke="black"
+            d="M472 0C472 0 472 124.5 472 236C472 290.794 457 319.5 418 365.5C365.697 427.192 327.75 455.93 286.5 525.5C253.861 580.549 236.691 613.583 220.5 675.5C204.516 736.629 192.858 774.398 204.5 836.5C219.044 914.078 255.415 961.726 297.5 1028.5C338.851 1094.11 368.729 1115.61 418 1175.5C472.751 1242.05 510.597 1273.68 577.5 1328C651.329 1387.94 712.927 1396.09 779.5 1464C842.851 1528.62 877.036 1572.11 907 1657.5C939.411 1749.86 934.603 1810.09 925 1907.5C913.416 2025.01 888.821 2091.16 834.5 2196C775.088 2310.67 725.075 2368.64 629.5 2455.5C536.997 2539.57 439.025 2532.45 361.5 2630.5C290.593 2720.18 249.77 2788.77 254.5 2903C259.582 3025.71 371.809 3061.58 402.5 3180.5C421.926 3255.77 458.902 3294.16 472 3373C493.953 3505.15 481.848 3580.89 472 3713.5C462.323 3843.81 482.459 3917.18 472 4047C462.127 4169.55 511.12 4245.96 472 4363C408.797 4552.1 137.287 4503.6 85 4696C4.03812 4993.92 644 4946.27 644 5255C644 5563.73 85 5505.27 85 5814C85 6122.73 510.762 6094.5 644 6373C816.839 6734.27 777.593 7020.96 644 7398.5C570.723 7605.59 497.795 7712.44 362.5 7885.5C244.129 8036.92 305.072 8073.89 198 8233.5C-110.61 8693.53 -15.1106 9140.67 198 9652C349.818 10016.3 388.225 10138.7 472 10462C660.762 11190.4 701.961 11669.5 472 12384C365.221 12715.8 -9.87121 12837.5 16.5001 13185C54.3248 13683.5 825.466 13620.2 876 14117.5C931.384 14662.6 108.444 14527.6 80.5 14987C47.2347 15533.9 904.5 15454.1 904.5 16002C904.5 16549.9 115.35 16482.3 166 16976.5C207 17376.5 320.059 17289.6 472 17533C1134 18593.5 472 18580.5 472 19727V20475"
+            fill="#FFFFFF"
+          />
+        </svg>
+      </div>
+      <div class="mt-4">
+        <button @click="play">Play</button>
+        <button @click="pause">Pause</button>
+      </div>
     </div>
   </div>
 </template>
@@ -43,18 +50,18 @@ export default {
       translateY: path("y"),
       rotate: path("angle"),
       easing: "linear",
-      duration: 10000,
+      duration: 100000,
       loop: true,
-      autoplay: false
+      autoplay: true
     });
   },
   methods: {
     play() {
-      this.anime.play()
+      this.anime.play();
     },
     pause() {
-      this.anime.pause()
+      this.anime.pause();
     }
-  },
+  }
 };
 </script>
