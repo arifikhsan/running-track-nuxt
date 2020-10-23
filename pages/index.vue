@@ -109,7 +109,8 @@
                     <!-- <p>progress: {{ Math.round(node.progress) }}</p> -->
                     <!-- <p>complete: {{ Math.round(node.complete) }}</p> -->
                     <p>
-                      {{ node.id }}: {{ Math.round(node.progress) }} %
+                      {{ node.id }} ({{ node.value }}, {{ node.step }}):
+                      {{ Math.round(node.progress) }} %
                       <span
                         @click="scrollToNode(node.id)"
                         class="px-2 py-1 text-white bg-gray-500 cursor-pointer rounded-xl"
@@ -140,7 +141,7 @@ import anime from "animejs";
 
 export default {
   head: {
-    title: 'Ekoji Running Track'
+    title: "Ekoji Running Track"
   },
   data() {
     return {
@@ -156,8 +157,8 @@ export default {
       ],
       randomNodes: [],
       winners: [],
-      // duration: 100000,
-      duration: 3000,
+      // duration: 10000,
+      duration: 20000,
       started: false
     };
   },
@@ -222,15 +223,18 @@ export default {
     async playAllRandom() {
       while (this.anyUnfinishedNode() && this.started) {
         const randomNode = this.randomUnfinishedNode();
-        randomNode.anim.play();
         const stepDistance = randomNode.value * randomNode.step * 100;
 
-        setTimeout(() => {
-          randomNode.anim.pause();
-          // console.log("paused");
-        }, stepDistance);
-        await this.sleep(stepDistance + 1000);
-        // console.log("done");
+        for (let i = 0; i < randomNode.step; i++) {
+          randomNode.anim.play();
+          setTimeout(() => {
+            randomNode.anim.pause();
+          }, randomNode.value * 50);
+          // this.scrollToNode(randomNode.id)
+          await this.sleep(1000);
+        }
+
+        await this.sleep(2000);
       }
     },
     randomUnfinishedNode() {
